@@ -28,6 +28,20 @@ func abs(x int) int {
 	return x
 }
 
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
 func getLines(file string) []string {
 	data, _ := os.ReadFile(file)
 	input := string(data)
