@@ -44,6 +44,5 @@ func max(a, b int) int {
 
 func getLines(file string) []string {
 	data, _ := os.ReadFile(file)
-	input := string(data)
-	return strings.Split(input, "\n")
+	return strings.Split(strings.ReplaceAll(string(data), "\r\n", "\n"), "\n")
 }

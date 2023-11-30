@@ -29,17 +29,17 @@ func day08() {
 
 func process(line string, screen *[][]bool) {
 	if line[1] == 'e' {
-		size := strings.Split(strings.TrimSpace(strings.Split(line, " ")[1]), "x")
+		size := strings.Split(strings.Split(line, " ")[1], "x")
 		x, _ := strconv.Atoi(size[0])
 		y, _ := strconv.Atoi(size[1])
 		rect(x, y, screen)
 	} else if line[7] == 'c' {
-		rot := strings.Split(strings.TrimSpace(strings.Split(line, "=")[1]), " by ")
+		rot := strings.Split(strings.Split(line, "=")[1], " by ")
 		col, _ := strconv.Atoi(rot[0])
 		amount, _ := strconv.Atoi(rot[1])
 		rotateCol(col, amount, screen)
 	} else {
-		rot := strings.Split(strings.TrimSpace(strings.Split(line, "=")[1]), " by ")
+		rot := strings.Split(strings.Split(line, "=")[1], " by ")
 		row, _ := strconv.Atoi(rot[0])
 		amount, _ := strconv.Atoi(rot[1])
 		rotateRow(row, amount, screen)

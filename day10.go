@@ -23,7 +23,7 @@ func day10() {
 		if line[0] == 'v' {
 			split := strings.Split(line, " ")
 			value, _ := strconv.Atoi(split[1])
-			bot, _ := strconv.Atoi(strings.TrimSpace(split[5]))
+			bot, _ := strconv.Atoi(split[5])
 			bots[bot] = append(bots[bot], value)
 			if len(bots[bot]) == 2 {
 				hasTwo = append(hasTwo, bot)
@@ -33,7 +33,7 @@ func day10() {
 			bot, _ := strconv.Atoi(split[1])
 			low, _ := strconv.Atoi(split[6])
 			lowout := split[5] == "output"
-			high, _ := strconv.Atoi(strings.TrimSpace(split[11]))
+			high, _ := strconv.Atoi(split[11])
 			highout := split[10] == "output"
 			insts[bot] = Inst{low, high, lowout, highout}
 		}
