@@ -2,15 +2,12 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"strconv"
 	"strings"
 )
 
 func day03() {
-	data, _ := os.ReadFile("day03.test")
-	input := string(data)
-	lines := strings.Split(input, "\n")
+	lines := getLines("day03.test")
 	var possible int
 
 	for i := 0; i < len(lines); i++ {

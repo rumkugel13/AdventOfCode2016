@@ -9,7 +9,7 @@ import (
 )
 
 func day05() {
-	var data = input05
+	var data = getLines("05.txt")[0]
 	var result string
 	var result2 = []byte("zzzzzzzz")
 
@@ -30,5 +30,3 @@ func day05() {
 	fmt.Println("Day 05 Part 1 Result: ", result)
 	fmt.Println("Day 05 Part 2 Result: ", string(result2))
 }
-
-var input05 = "ffykfhsq"
