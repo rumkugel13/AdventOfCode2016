@@ -1,35 +1,35 @@
 package main
 
-import ( 
+import (
 	"fmt"
-	"strings"
-	"strconv"
 	"sort"
+	"strconv"
+	"strings"
 )
 
 func day04() {
-	lines := getLines("04.txt")
+	lines := getLines("input/04.txt")
 	var sectorIds int
 	var storage int
 
 	for i := 0; i < len(lines); i++ {
 		split := strings.Split(lines[i], "-")
 		count := map[byte]int{}
-		for j := 0; j < len(split) - 1; j++ {
+		for j := 0; j < len(split)-1; j++ {
 			for k := 0; k < len(split[j]); k++ {
 				count[split[j][k]]++
 			}
 		}
 
 		split2 := strings.Split(split[len(split)-1], "[")
-		id,_ := strconv.Atoi(split2[0])
+		id, _ := strconv.Atoi(split2[0])
 		checksum := strings.Split(split2[1], "]")[0]
 
 		if check(count, checksum) {
 			sectorIds += id
-			
+
 			var sector string
-			for j := 0; j < len(split) - 1; j++ {
+			for j := 0; j < len(split)-1; j++ {
 				for k := 0; k < len(split[j]); k++ {
 					sector += string(rot(split[j][k], id))
 				}
@@ -71,5 +71,5 @@ func check(count map[byte]int, checksum string) bool {
 }
 
 func rot(c byte, amount int) byte {
-	return byte(mod(int(c) - 'a' + amount, 26) + 'a')
+	return byte(mod(int(c)-'a'+amount, 26) + 'a')
 }

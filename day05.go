@@ -1,15 +1,15 @@
 package main
 
 import (
-	"fmt"
-	"strings"
 	"crypto/md5"
 	"encoding/hex"
+	"fmt"
 	"strconv"
+	"strings"
 )
 
 func day05() {
-	var data = getLines("05.txt")[0]
+	var data = getLines("input/05.txt")[0]
 	var result string
 	var result2 = []byte("zzzzzzzz")
 
@@ -21,8 +21,8 @@ func day05() {
 				result += string(str[5])
 			}
 			index := str[5]
-			if index >= '0' && index <= '7' && result2[index - '0'] == 'z' {
-				result2[index - '0'] = str[6]
+			if index >= '0' && index <= '7' && result2[index-'0'] == 'z' {
+				result2[index-'0'] = str[6]
 			}
 		}
 	}

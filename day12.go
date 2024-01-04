@@ -7,7 +7,7 @@ import (
 )
 
 func day12() {
-	instructions := getLines("12.txt")
+	instructions := getLines("input/12.txt")
 
 	var result = run(instructions, false)
 	fmt.Println("Day 12 Part 1 Result: ", result)

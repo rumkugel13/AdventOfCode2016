@@ -5,7 +5,7 @@ import "strings"
 import "strconv"
 
 func day01() {
-	var instructions = strings.Split(getLines("01.txt")[0], ", ")
+	var instructions = strings.Split(getLines("input/01.txt")[0], ", ")
 	var p = Point{0, 0}
 	var zero = p
 	var dir = 0 // 0 is up

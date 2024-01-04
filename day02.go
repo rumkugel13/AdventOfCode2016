@@ -4,7 +4,7 @@ import "fmt"
 import "strconv"
 
 func day02() {
-	var instructions = getLines("02.txt")
+	var instructions = getLines("input/02.txt")
 	var num = 5
 	var num2 = 5
 	var result string
@@ -19,8 +19,8 @@ func day02() {
 				if num > 3 {
 					num -= 3
 				}
-				if (num2 != 5 && num2 != 2 && num2 != 1 && num2 != 4 && num2 != 9){
-					if num2 % 2 == 0 || num2 == 7 || num2 == 11 {
+				if num2 != 5 && num2 != 2 && num2 != 1 && num2 != 4 && num2 != 9 {
+					if num2%2 == 0 || num2 == 7 || num2 == 11 {
 						num2 -= 4
 					} else {
 						num2 -= 2
@@ -30,25 +30,25 @@ func day02() {
 				if num < 7 {
 					num += 3
 				}
-				if (num2 != 5 && num2 != 10 && num2 != 13 && num2 != 12 && num2 != 9){
-					if num2 % 2 == 0 || num2 == 7 || num2 == 3 {
+				if num2 != 5 && num2 != 10 && num2 != 13 && num2 != 12 && num2 != 9 {
+					if num2%2 == 0 || num2 == 7 || num2 == 3 {
 						num2 += 4
 					} else {
 						num2 += 2
 					}
 				}
 			case 'L':
-				if num % 3 != 1 {
+				if num%3 != 1 {
 					num -= 1
 				}
-				if (num2 != 5 && num2 != 2 && num2 != 1 && num2 != 10 && num2 != 13){
+				if num2 != 5 && num2 != 2 && num2 != 1 && num2 != 10 && num2 != 13 {
 					num2 -= 1
 				}
 			case 'R':
-				if num % 3 != 0 {
+				if num%3 != 0 {
 					num += 1
 				}
-				if (num2 != 9 && num2 != 4 && num2 != 1 && num2 != 12 && num2 != 13){
+				if num2 != 9 && num2 != 4 && num2 != 1 && num2 != 12 && num2 != 13 {
 					num2 += 1
 				}
 			}

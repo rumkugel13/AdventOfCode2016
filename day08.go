@@ -7,7 +7,7 @@ import (
 )
 
 func day08() {
-	lines := getLines("08.txt")
+	lines := getLines("input/08.txt")
 	screen := make([][]bool, 6, 50)
 	for i := 0; i < len(screen); i++ {
 		screen[i] = make([]bool, 50)

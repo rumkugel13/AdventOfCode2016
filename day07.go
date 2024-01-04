@@ -5,7 +5,7 @@ import (
 )
 
 func day07() {
-	lines := getLines("07.txt")
+	lines := getLines("input/07.txt")
 	var result = 0
 	var result2 = 0
 
