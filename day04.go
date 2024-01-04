@@ -8,7 +8,7 @@ import (
 )
 
 func day04() {
-	lines := getLines("day04.test")
+	lines := getLines("04.txt")
 	var sectorIds int
 	var storage int
 

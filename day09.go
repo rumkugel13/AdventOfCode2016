@@ -7,7 +7,7 @@ import (
 )
 
 func day09() {
-	input := getLines("input09.txt")[0]
+	input := getLines("09.txt")[0]
 
 	var result = decompress(input, false)
 	fmt.Println("Day 09 Part 1 Result: ", result)

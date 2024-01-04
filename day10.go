@@ -12,7 +12,7 @@ type Inst struct {
 }
 
 func day10() {
-	lines := getLines("input10.txt")
+	lines := getLines("10.txt")
 	bots := map[int][]int{}
 	outputs := map[int][]int{}
 	insts := map[int]Inst{}

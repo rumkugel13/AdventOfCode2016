@@ -7,7 +7,7 @@ import (
 )
 
 func day03() {
-	lines := getLines("day03.test")
+	lines := getLines("03.txt")
 	var possible int
 
 	for i := 0; i < len(lines); i++ {

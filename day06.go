@@ -6,7 +6,7 @@ import (
 )
 
 func day06() {
-	lines := getLines("day06.test")
+	lines := getLines("06.txt")
 	counts := []map[byte]int{}
 	for i := 0; i < len(lines[0]); i++ {
 		counts = append(counts, map[byte]int{})
