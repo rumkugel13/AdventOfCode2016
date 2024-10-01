@@ -16,9 +16,9 @@ func day12() {
 }
 
 func run(insts []string, part2 bool) int {
-	var regs = map[string]int{"a": 0, "b": 0, "c": 0, "d": 0}
+	var regs [4]int
 	if part2 {
-		regs["c"] = 1
+		regs['c'-'a'] = 1
 	}
 
 	for i := 0; i < len(insts); i++ {
@@ -26,27 +26,29 @@ func run(insts []string, part2 bool) int {
 		split := strings.Fields(inst)
 		switch inst[0] {
 		case 'c':
-			dest := split[2]
+			dest := split[2][0]-'a'
 			src, num := strconv.Atoi(split[1])
 			if num == nil {
 				regs[dest] = src
 			} else {
-				regs[dest] = regs[split[1]]
+				reg := split[1][0]-'a'
+				regs[dest] = regs[reg]
 			}
 		case 'i':
-			reg := split[1]
+			reg := split[1][0]-'a'
 			regs[reg]++
 		case 'd':
-			reg := split[1]
+			reg := split[1][0]-'a'
 			regs[reg]--
 		case 'j':
-			reg, num := strconv.Atoi(split[1])
+			imm, convErr := strconv.Atoi(split[1])
 			amount, _ := strconv.Atoi(split[2])
-			if (num != nil && regs[split[1]] != 0) || (num == nil && reg != 0) {
+			reg := split[1][0]-'a'
+			if (convErr != nil && regs[reg] != 0) || (convErr == nil && imm != 0) {
 				i += amount - 1
 			}
 		}
 	}
 
-	return regs["a"]
+	return regs['a'-'a']
 }
