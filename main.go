@@ -8,11 +8,12 @@ func main() {
 	day02()
 	day03()
 	day04()
-	go day05()
+	day05()
 	day06()
 	day07()
 	day08()
 	day09()
 	day10()
 	day12()
+	day13()
 }
