@@ -12,70 +12,46 @@ func day13() {
 	start := Point{1, 1}
 	goal := Point{31, 39}
 
-	{
-		var visited = make(map[Point]int)
-		visited[start] = 0
+	var visited = make(map[Point]int)
+	visited[start] = 0
 
-		var todo []Point
-		todo = append(todo, start)
+	var queue []Point
+	queue = append(queue, start)
 
-		var dist int = 0
+	var dist int = 0
 
-		for len(todo) > 0 {
-			current := todo[0]
-			todo = todo[1:]
-			currDist := visited[current]
+	for len(queue) > 0 {
+		currPoint := queue[0]
+		queue = queue[1:]
+		currDist := visited[currPoint]
 
-			if current == goal {
-				dist = currDist
-				break
-			}
+		if currPoint == goal {
+			dist = currDist
+			break
+		}
 
-			for _, p := range []Point{{+1, 0}, {-1, 0}, {0, +1}, {0, -1}} {
-				next := Point{current.x + p.x, current.y + p.y}
-				if next.x >= 0 && next.y >= 0 && !isWall(next.x, next.y, input) {
-					_, found := visited[next]
-					if !found {
-						todo = append(todo, next)
-						visited[next] = currDist + 1
-					}
+		for _, dir := range []Point{{+1, 0}, {-1, 0}, {0, +1}, {0, -1}} {
+			nextPoint := Point{currPoint.x + dir.x, currPoint.y + dir.y}
+			if nextPoint.x >= 0 && nextPoint.y >= 0 && !isWall(nextPoint.x, nextPoint.y, input) {
+				_, found := visited[nextPoint]
+				if !found {
+					queue = append(queue, nextPoint)
+					visited[nextPoint] = currDist + 1
 				}
 			}
 		}
-
-		fmt.Println("Day 13 Part 1 Result: ", dist)
 	}
 
-	{
-		var visited2 = make(map[Point]int)
-		visited2[start] = 0
+	fmt.Println("Day 13 Part 1 Result: ", dist)
 
-		var todo2 []Point
-		todo2 = append(todo2, start)
-
-		for len(todo2) > 0 {
-			current := todo2[0]
-			todo2 = todo2[1:]
-			currDist := visited2[current]
-
-			if currDist == 50 {
-				continue
-			}
-
-			for _, p := range []Point{{+1, 0}, {-1, 0}, {0, +1}, {0, -1}} {
-				next := Point{current.x + p.x, current.y + p.y}
-				if next.x >= 0 && next.y >= 0 && !isWall(next.x, next.y, input) {
-					_, found := visited2[next]
-					if !found {
-						todo2 = append(todo2, next)
-						visited2[next] = currDist + 1
-					}
-				}
-			}
+	// assuming dist > 50, count how many are below
+	var count int
+	for _, p := range visited {
+		if p <= 50 {
+			count++
 		}
-
-		fmt.Println("Day 13 Part 2 Result: ", len(visited2))
 	}
+	fmt.Println("Day 13 Part 2 Result: ", count)
 }
 
 func isWall(x, y, in int) bool {
