@@ -13,10 +13,11 @@ func day05() {
 	var result string
 	var result2 = []byte("zzzzzzzz")
 
+	var doorID = []byte(data)
 	for i := 0; len(result) < 8 || strings.Contains(string(result2), "z"); i++ {
-		hash := md5.Sum([]byte(data + strconv.Itoa(i)))
-		str := hex.EncodeToString(hash[:])
-		if str[0:5] == "00000" {
+		hash := md5.Sum(append(doorID, []byte(strconv.Itoa(i))...))
+		if hash[0] == 0 && hash[1] == 0 && hash[2] <= 0x0F {
+			str := hex.EncodeToString(hash[:])
 			if len(result) < 8 {
 				result += string(str[5])
 			}
