@@ -4,5 +4,5 @@
 
 ## Progress
 
-- Finished: Days 01-10, 12-15
-- Todo: Days 11, 16-25
+- Finished: Days 01-10, 12-16
+- Todo: Days 11, 17-25
